@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "EavL1QIsCLSg1lctWBwbKGxNL4WyZO1c4T4lk5ORl3DRtKNC6r1tE7SjG31a9Z+zXGwFlid9qPil0hZR66U+nQ==",
+  "dgSpecHash": "UdEVm16GEp+Xwnu/g9fzdT+Bj+VGTApGiHWF2q1MctlBheuf7qTbtwN56RDU17yEMS8rEZpFWoP0EafnCOkMzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\helen.ASUS\\Desktop\\sasagutan ko hihi\\KALIDS\\2ND YEAR\\ITE1\\PhonebookASEAN\\PhonebookASEAN.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\HP\\Documents\\ASEAN-Phonebook\\PhonebookASEAN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.11\\microsoft.netcore.app.ref.7.0.11.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.11\\microsoft.windowsdesktop.app.ref.7.0.11.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.11\\microsoft.aspnetcore.app.ref.7.0.11.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.11\\microsoft.netcore.app.host.win-x64.7.0.11.nupkg.sha512"
+  ],
   "logs": []
 }
