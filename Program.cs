@@ -127,6 +127,8 @@ class Phonebook {
 // Master class
 class Master {
     static void Main() {
+        // Initiate object
+        Phonebook phonebook_obj = new Phonebook();
         // Main menu
         while (true) {
             string txt = "ASEAN PHONEBOOK";
@@ -143,6 +145,7 @@ class Master {
                         txt = "Selected: Store to ASEAN Phonebook";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
                         Console.WriteLine(centerTxt);
+                        phonebook_obj.Phonebook_Store();
                         break;
                     case 2:
                         txt = "Selected: Edit Entry in ASEAN Phonebook";
