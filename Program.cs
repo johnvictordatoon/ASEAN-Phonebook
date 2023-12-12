@@ -65,11 +65,70 @@ class Phonebook {
         book_sing = new List<Dictionary<string, object>>();
         book_thai = new List<Dictionary<string, object>>();
     }
+
+    // Storing information
+    public void Phonebook_Store() {
+        Console.Write("Student Number: ");
+        Student_Number = Console.ReadLine();
+        Console.Write("Surname: ");
+        Surname = Console.ReadLine();
+        Console.Write("First Name: ");
+        First_Name = Console.ReadLine();
+        Console.Write("Occupation: ");
+        Occupation = Console.ReadLine();
+        Console.Write("Gender [Male (M) | Female (F)]: ");
+        Gender = Console.ReadLine();
+        Console.Write("Country Code (Malaysia - 60, Indonesia - 62, Philippines - 63, Singapore - 65, Thailand - 66): ");
+        Country_Code = int.Parse(Console.ReadLine());
+        Console.Write("Area Code: ");
+        Area_Code = int.Parse(Console.ReadLine());
+        Console.Write("Phone Number: ");
+        Phone_Number = Convert.ToInt64(Console.ReadLine());
+
+        Console.WriteLine("\nSaving...");
+        System.Threading.Thread.Sleep(5000);
+        Console.WriteLine("Save Complete!");
+        System.Threading.Thread.Sleep(1000);
+
+        Dictionary<string, object> phonebook_info = new Dictionary<string, object> {
+            {"Student Number", Student_Number},
+            {"Surname", Surname},
+            {"First Name", First_Name},
+            {"Occupation", Occupation},
+            {"Gender", Gender},
+            {"Country Code", Country_Code},
+            {"Area Code", Area_Code},
+            {"Phone Number", Phone_Number}
+        };
+
+        if (Country_Code == 60)
+            book_malay.Add(phonebook_info);
+        else if (Country_Code == 62)
+            book_indo.Add(phonebook_info);
+        else if (Country_Code == 63)
+            book_phil.Add(phonebook_info);
+        else if (Country_Code == 65)
+            book_sing.Add(phonebook_info);
+        else if (Country_Code == 66)
+            book_thai.Add(phonebook_info);
+
+        Console.Write("\nEnter Another entry? (Y/N): ");
+        string another_entry = Console.ReadLine().ToUpper();
+        if (another_entry == "Y") {
+            Phonebook_Store();
+        }
+        else {
+            Console.WriteLine("\nReturning to Main Menu...\n");
+            System.Threading.Thread.Sleep(3000);
+        }
+    }
 } // class Phonebook
 
 // Master class
 class Master {
     static void Main() {
+        // Initiate object
+        Phonebook phonebook_obj = new Phonebook();
         // Main menu
         while (true) {
             string txt = "ASEAN PHONEBOOK";
@@ -86,6 +145,7 @@ class Master {
                         txt = "Selected: Store to ASEAN Phonebook";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
                         Console.WriteLine(centerTxt);
+                        phonebook_obj.Phonebook_Store();
                         break;
                     case 2:
                         txt = "Selected: Edit Entry in ASEAN Phonebook";
