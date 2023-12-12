@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//Main class
+// Main class
 class Phonebook {
     private List<Dictionary<string, object>> book_malay;
     private List<Dictionary<string, object>> book_indo;
