@@ -2,7 +2,7 @@
 ## FINAL PROJECT/DRILL
 
 ***Background***
-** **
+
 Write a C# program to make an ASEAN Phonebook using Object-Oriented Programming Principles
 
 **ASEAN countries involved:**
