@@ -90,6 +90,7 @@ class Phonebook {
         Console.WriteLine("Save Complete!");
         System.Threading.Thread.Sleep(1000);
 
+        // Dictionary to store phonebook info
         Dictionary<string, object> phonebook_info = new Dictionary<string, object> {
             {"Student Number", Student_Number},
             {"Surname", Surname},
@@ -128,6 +129,8 @@ class Phonebook {
         while (true) {
         Console.Write("Enter student number: ");
         string find_student_number = Console.ReadLine();
+
+        // Iterate through all entries and find one with specified number
         foreach (var phonebook_entry in book_malay.Concat(book_indo).Concat(book_phil).Concat(book_sing).Concat(book_thai)) {
             if (find_student_number == phonebook_entry["Student Number"].ToString()) {
                 Console.WriteLine($"\nExisting info about {find_student_number}:");
@@ -207,8 +210,10 @@ class Phonebook {
             }
         }
 
+        // New list to store entries from selected countries
         List<Dictionary<string, object>> entries = new List<Dictionary<string, object>>();
 
+        // Iterate through selected countries and add to list
         foreach (var selection in selected_countries) {
             switch (selection) {
                 case 1:
@@ -231,7 +236,7 @@ class Phonebook {
                     break;
             }
         }
-        
+
         // If no info searched, inform user
         if (entries.Count == 0) {
         Console.WriteLine("\nNo information found in selected countries. Returning to Main Menu...\n");
