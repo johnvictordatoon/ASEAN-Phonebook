@@ -147,6 +147,8 @@ class Phonebook {
                         Console.Write($"Enter new {phonebook_entry.Keys.ElementAt(change_info - 1)}: ");
                         string new_info = Console.ReadLine();
                         phonebook_entry[phonebook_entry.Keys.ElementAt(change_info - 1)] = new_info;
+                        Console.WriteLine("Updating...\n");
+                        System.Threading.Thread.Sleep(2000);
                         Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} successfully updated!");
                     }
                     else {
@@ -225,11 +227,12 @@ class Phonebook {
         // Print information for each entry
         foreach (var entry in entries) {
             Console.WriteLine("\nSearching...\n");
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
             Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Country Code"]}-{entry["Area Code"]}{entry["Phone Number"]}.\n");
         }
 
         Console.WriteLine("\nSearching Finished!");
+        System.Threading.Thread.Sleep(1000);
         Console.WriteLine("Returning to Main Menu...\n");
         System.Threading.Thread.Sleep(3000);
     }
