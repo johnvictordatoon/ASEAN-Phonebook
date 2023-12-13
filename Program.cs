@@ -239,7 +239,7 @@ class Phonebook {
 
         // If no info searched, inform user
         if (entries.Count == 0) {
-        Console.WriteLine("\nNo information found in selected countries. Returning to Main Menu...\n");
+        Console.WriteLine("\nNo information found in selected country/ies. Returning to Main Menu...\n");
         System.Threading.Thread.Sleep(3000);
         return;
         }
@@ -298,15 +298,15 @@ class Master {
                         phonebook_obj.Search_Phonebook();
                         break;
                     case 4:
-                        Console.WriteLine("Exiting...");
+                        Console.WriteLine("\nExiting...\n");
                         return;
                     default:
-                        Console.WriteLine("Selection doesn't exist.");
+                        Console.WriteLine("\nSelection doesn't exist.\n");
                         break;
                 }
             }
             else {
-                Console.WriteLine("Selection doesn't exist.");
+                Console.WriteLine("\nSelection doesn't exist.\n");
             }
         }
     }
