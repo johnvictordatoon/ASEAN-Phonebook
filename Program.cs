@@ -125,13 +125,13 @@ class Phonebook {
 
     // Edit stored information
     public void Edit_Phonebook() {
+        while (true) {
         Console.Write("Enter student number: ");
         string find_student_number = Console.ReadLine();
-
         foreach (var phonebook_entry in book_malay.Concat(book_indo).Concat(book_phil).Concat(book_sing).Concat(book_thai)) {
             if (find_student_number == phonebook_entry["Student Number"].ToString()) {
                 Console.WriteLine($"Existing info about {find_student_number}:");
-                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Phone Number"]}");
+                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Country Code"]}-{phonebook_entry["Area Code"]}{phonebook_entry["Phone Number"]}");
 
                 while (true) {
                     Console.WriteLine("Which of these info you wish to change?");
@@ -147,7 +147,7 @@ class Phonebook {
                         Console.Write($"Enter new {phonebook_entry.Keys.ElementAt(change_info - 1)}: ");
                         string new_info = Console.ReadLine();
                         phonebook_entry[phonebook_entry.Keys.ElementAt(change_info - 1)] = new_info;
-                        Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} updated successfully!");
+                        Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} successfully updated!");
                     }
                     else {
                         Console.WriteLine("Selection doesn't exist.");
@@ -155,7 +155,8 @@ class Phonebook {
                 }
             }
         }
-        Console.WriteLine($"No info found in student number {find_student_number}. Register this person first before editing any new information.");
+        Console.WriteLine($"\nNo info found in student number {find_student_number}. Register this person first before editing any new information.\n");
+        }
     }
 
     // Search phonebook
@@ -223,7 +224,9 @@ class Phonebook {
 
         // Print information for each entry
         foreach (var entry in entries) {
-            Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Phone Number"]}.");
+            Console.WriteLine("\nSearching...\n");
+            System.Threading.Thread.Sleep(3000);
+            Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Country Code"]}-{entry["Area Code"]}{entry["Phone Number"]}.\n");
         }
 
         Console.WriteLine("\nSearching Finished!");
