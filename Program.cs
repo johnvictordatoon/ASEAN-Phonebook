@@ -272,19 +272,19 @@ class Master {
                     case 1:
                         txt = "Selected: Store to ASEAN Phonebook";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
-                        Console.WriteLine(centerTxt);
+                        Console.WriteLine("\n" + centerTxt);
                         phonebook_obj.Phonebook_Store();
                         break;
                     case 2:
                         txt = "Selected: Edit Entry in ASEAN Phonebook";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
-                        Console.WriteLine(centerTxt);
+                        Console.WriteLine("\n" + centerTxt);
                         phonebook_obj.Edit_Phonebook();               
                         break;
                     case 3:
                         txt = "Selected: Search ASEAN Phonebook by Country";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
-                        Console.WriteLine(centerTxt);
+                        Console.WriteLine("\n" + centerTxt);
                         phonebook_obj.Search_Phonebook();
                         break;
                     case 4:
