@@ -122,6 +122,42 @@ class Phonebook {
             System.Threading.Thread.Sleep(3000);
         }
     }
+
+    // Edit stored information
+    public void Edit_Phonebook() {
+        Console.Write("Enter student number: ");
+        string find_student_number = Console.ReadLine();
+
+        foreach (var phonebook_entry in book_malay.Concat(book_indo).Concat(book_phil).Concat(book_sing).Concat(book_thai)) {
+            if (find_student_number == phonebook_entry["Student Number"].ToString()) {
+                Console.WriteLine($"Existing info about {find_student_number}:");
+                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Phone Number"]}");
+
+                while (true) {
+                    Console.WriteLine("Which of these info you wish to change?");
+                    Console.WriteLine("[1] Student Number\n[2] Surname\n[3] Gender\n[4] Occupation\n[5] Country Code\n[6] Area Code\n[7] Phone Number\n[8] None - Return to Main Menu");
+                    int change_info = int.Parse(Console.ReadLine());
+
+                    if (change_info == 8) {
+                        Console.WriteLine("\nReturning to Main Menu...\n");
+                        System.Threading.Thread.Sleep(3000);
+                        return;
+                    }
+                    else if (change_info >= 1 && change_info <= 7) {
+                        Console.Write($"Enter new {phonebook_entry.Keys.ElementAt(change_info - 1)}: ");
+                        string new_info = Console.ReadLine();
+                        phonebook_entry[phonebook_entry.Keys.ElementAt(change_info - 1)] = new_info;
+                        Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} updated successfully!");
+                    }
+                    else {
+                        Console.WriteLine("Selection doesn't exist.");
+                    }
+                }
+            }
+        }
+        Console.WriteLine($"No info found in student number {find_student_number}. Register this person first before editing any new information.");
+    }
+
 } // class Phonebook
 
 // Master class
@@ -150,7 +186,8 @@ class Master {
                     case 2:
                         txt = "Selected: Edit Entry in ASEAN Phonebook";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
-                        Console.WriteLine(centerTxt);               
+                        Console.WriteLine(centerTxt);
+                        phonebook_obj.Edit_Phonebook();               
                         break;
                     case 3:
                         txt = "Selected: Search ASEAN Phonebook by Country";

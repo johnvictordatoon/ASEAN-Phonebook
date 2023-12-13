@@ -12,3 +12,18 @@ C:\Users\helen.ASUS\Desktop\sasagutan ko hihi\KALIDS\2ND YEAR\ITE1\PhonebookASEA
 C:\Users\helen.ASUS\Desktop\sasagutan ko hihi\KALIDS\2ND YEAR\ITE1\PhonebookASEAN\obj\Debug\net7.0\PhonebookASEAN.pdb
 C:\Users\helen.ASUS\Desktop\sasagutan ko hihi\KALIDS\2ND YEAR\ITE1\PhonebookASEAN\obj\Debug\net7.0\PhonebookASEAN.genruntimeconfig.cache
 C:\Users\helen.ASUS\Desktop\sasagutan ko hihi\KALIDS\2ND YEAR\ITE1\PhonebookASEAN\obj\Debug\net7.0\ref\PhonebookASEAN.dll
+C:\Users\HP\Documents\ASEAN-Phonebook\bin\Debug\net7.0\PhonebookASEAN.exe
+C:\Users\HP\Documents\ASEAN-Phonebook\bin\Debug\net7.0\PhonebookASEAN.deps.json
+C:\Users\HP\Documents\ASEAN-Phonebook\bin\Debug\net7.0\PhonebookASEAN.runtimeconfig.json
+C:\Users\HP\Documents\ASEAN-Phonebook\bin\Debug\net7.0\PhonebookASEAN.dll
+C:\Users\HP\Documents\ASEAN-Phonebook\bin\Debug\net7.0\PhonebookASEAN.pdb
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.AssemblyInfo.cs
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.sourcelink.json
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.dll
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\refint\PhonebookASEAN.dll
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.pdb
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\PhonebookASEAN.genruntimeconfig.cache
+C:\Users\HP\Documents\ASEAN-Phonebook\obj\Debug\net7.0\ref\PhonebookASEAN.dll
