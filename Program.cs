@@ -130,8 +130,8 @@ class Phonebook {
         string find_student_number = Console.ReadLine();
         foreach (var phonebook_entry in book_malay.Concat(book_indo).Concat(book_phil).Concat(book_sing).Concat(book_thai)) {
             if (find_student_number == phonebook_entry["Student Number"].ToString()) {
-                Console.WriteLine($"Existing info about {find_student_number}:");
-                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Country Code"]}-{phonebook_entry["Area Code"]}-{phonebook_entry["Phone Number"]}");
+                Console.WriteLine($"\nExisting info about {find_student_number}:");
+                Console.WriteLine($"\n{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Country Code"]}-{phonebook_entry["Area Code"]}-{phonebook_entry["Phone Number"]}\n");
 
                 while (true) {
                     Console.WriteLine("Which of these info you wish to change?");
@@ -148,9 +148,9 @@ class Phonebook {
                         Console.Write($"Enter new {phonebook_entry.Keys.ElementAt(change_info - 1)}: ");
                         string new_info = Console.ReadLine();
                         phonebook_entry[phonebook_entry.Keys.ElementAt(change_info - 1)] = new_info;
-                        Console.WriteLine("\nUpdating...\n");
+                        Console.WriteLine("\nUpdating...");
                         System.Threading.Thread.Sleep(2000);
-                        Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} successfully updated!");
+                        Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} successfully updated!\n");
                     }
                     else {
                         Console.WriteLine("Selection doesn't exist.");
@@ -188,6 +188,10 @@ class Phonebook {
 
             if (int.TryParse(Console.ReadLine(), out country_select)) {
                 if (country_select == 0) {
+                    break;
+                }
+                else if (country_select == 6) {
+                    selected_countries.Add(country_select);
                     break;
                 }
                 else if (country_names.ContainsKey(country_select)) {
