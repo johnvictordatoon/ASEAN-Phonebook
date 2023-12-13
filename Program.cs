@@ -131,7 +131,7 @@ class Phonebook {
         foreach (var phonebook_entry in book_malay.Concat(book_indo).Concat(book_phil).Concat(book_sing).Concat(book_thai)) {
             if (find_student_number == phonebook_entry["Student Number"].ToString()) {
                 Console.WriteLine($"Existing info about {find_student_number}:");
-                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Country Code"]}-{phonebook_entry["Area Code"]}{phonebook_entry["Phone Number"]}");
+                Console.WriteLine($"{phonebook_entry["First Name"]} {phonebook_entry["Surname"]} is a/an {phonebook_entry["Occupation"]}. {phonebook_entry["First Name"]} {phonebook_entry["Surname"]}'s number is {phonebook_entry["Country Code"]}-{phonebook_entry["Area Code"]}-{phonebook_entry["Phone Number"]}");
 
                 while (true) {
                     Console.WriteLine("Which of these info you wish to change?");
@@ -170,7 +170,8 @@ class Phonebook {
             {3, "Singapore"},
             {4, "Indonesia"},
             {5, "Malaysia"},
-            {6, "All"}
+            {6, "All ASEAN Countries"},
+            {0, "No More"}
         };
 
         Console.WriteLine("From which country/ies?");
@@ -183,14 +184,19 @@ class Phonebook {
         int counting = 1;
         while (true) {
             Console.Write($"Select Country #{counting}: ");
-            int country_select = int.Parse(Console.ReadLine());
+            int country_select;
 
-            if (country_select == 0) {
-                break;
-            }
-            else if (country_names.ContainsKey(country_select)) {
-                selected_countries.Add(country_select);
-                counting++;
+            if (int.TryParse(Console.ReadLine(), out country_select)) {
+                if (country_select == 0) {
+                    break;
+                }
+                else if (country_names.ContainsKey(country_select)) {
+                    selected_countries.Add(country_select);
+                    counting++;
+                }
+                else {
+                    Console.WriteLine("Selection doesn't exist.");
+                }
             }
             else {
                 Console.WriteLine("Selection doesn't exist.");
@@ -222,6 +228,12 @@ class Phonebook {
             }
         }
 
+        if (entries.Count == 0) {
+        Console.WriteLine("\nNo information found in selected countries. Returning to Main Menu...\n");
+        System.Threading.Thread.Sleep(3000);
+        return;
+        }
+
         // Sort surnames alphabetically
         entries.Sort((x, y) => string.Compare(x["Surname"].ToString(), y["Surname"].ToString(), StringComparison.Ordinal));
 
@@ -229,7 +241,8 @@ class Phonebook {
         foreach (var entry in entries) {
             Console.WriteLine("\nSearching...\n");
             System.Threading.Thread.Sleep(5000);
-            Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Country Code"]}-{entry["Area Code"]}{entry["Phone Number"]}.\n");
+            Console.WriteLine($"Here are the students from {string.Join(", ", selected_countries.Select(c => country_names[c]))}:");
+            Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Country Code"]}-{entry["Area Code"]}-{entry["Phone Number"]}.\n");
         }
 
         Console.WriteLine("Searching Finished!");
