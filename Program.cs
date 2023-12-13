@@ -136,6 +136,7 @@ class Phonebook {
                 while (true) {
                     Console.WriteLine("Which of these info you wish to change?");
                     Console.WriteLine("[1] Student Number\n[2] Surname\n[3] Gender\n[4] Occupation\n[5] Country Code\n[6] Area Code\n[7] Phone Number\n[8] None - Return to Main Menu");
+                    Console.Write("Enter here: ");
                     int change_info = int.Parse(Console.ReadLine());
 
                     if (change_info == 8) {
@@ -147,7 +148,7 @@ class Phonebook {
                         Console.Write($"Enter new {phonebook_entry.Keys.ElementAt(change_info - 1)}: ");
                         string new_info = Console.ReadLine();
                         phonebook_entry[phonebook_entry.Keys.ElementAt(change_info - 1)] = new_info;
-                        Console.WriteLine("Updating...\n");
+                        Console.WriteLine("\nUpdating...\n");
                         System.Threading.Thread.Sleep(2000);
                         Console.WriteLine($"{phonebook_entry.Keys.ElementAt(change_info - 1)} successfully updated!");
                     }
@@ -231,7 +232,7 @@ class Phonebook {
             Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Country Code"]}-{entry["Area Code"]}{entry["Phone Number"]}.\n");
         }
 
-        Console.WriteLine("\nSearching Finished!");
+        Console.WriteLine("Searching Finished!");
         System.Threading.Thread.Sleep(1000);
         Console.WriteLine("Returning to Main Menu...\n");
         System.Threading.Thread.Sleep(3000);
