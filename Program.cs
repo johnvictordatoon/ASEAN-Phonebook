@@ -158,6 +158,78 @@ class Phonebook {
         Console.WriteLine($"No info found in student number {find_student_number}. Register this person first before editing any new information.");
     }
 
+    // Search phonebook
+    public void Search_Phonebook() {
+        Dictionary<int, string> country_names = new Dictionary<int, string> {
+            {1, "Philippines"},
+            {2, "Thailand"},
+            {3, "Singapore"},
+            {4, "Indonesia"},
+            {5, "Malaysia"},
+            {6, "All"}
+        };
+
+        Console.WriteLine("From which country/ies?");
+        foreach (var pair in country_names) {
+            Console.WriteLine($"[{pair.Key}] {pair.Value}");
+        }
+
+        HashSet<int> selected_countries = new HashSet<int>();
+
+        int counting = 1;
+        while (true) {
+            Console.Write($"Select Country #{counting}: ");
+            int country_select = int.Parse(Console.ReadLine());
+
+            if (country_select == 0) {
+                break;
+            }
+            else if (country_names.ContainsKey(country_select)) {
+                selected_countries.Add(country_select);
+                counting++;
+            }
+            else {
+                Console.WriteLine("Selection doesn't exist.");
+            }
+        }
+
+        List<Dictionary<string, object>> entries = new List<Dictionary<string, object>>();
+
+        foreach (var selection in selected_countries) {
+            switch (selection) {
+                case 1:
+                    entries.AddRange(book_phil);
+                    break;
+                case 2:
+                    entries.AddRange(book_thai);
+                    break;
+                case 3:
+                    entries.AddRange(book_sing);
+                    break;
+                case 4:
+                    entries.AddRange(book_indo);
+                    break;
+                case 5:
+                    entries.AddRange(book_malay);
+                    break;
+                case 6:
+                    entries.AddRange(book_phil.Concat(book_thai).Concat(book_sing).Concat(book_indo).Concat(book_malay));
+                    break;
+            }
+        }
+
+        // Sort surnames alphabetically
+        entries.Sort((x, y) => string.Compare(x["Surname"].ToString(), y["Surname"].ToString(), StringComparison.Ordinal));
+
+        // Print information for each entry
+        foreach (var entry in entries) {
+            Console.WriteLine($"{entry["Surname"]}, {entry["First Name"]}, with a student number {entry["Student Number"]}, is a {entry["Occupation"]}. {entry["First Name"]}'s phone number is {entry["Phone Number"]}.");
+        }
+
+        Console.WriteLine("\nSearching Finished!");
+        Console.WriteLine("Returning to Main Menu...\n");
+        System.Threading.Thread.Sleep(3000);
+    }
 } // class Phonebook
 
 // Master class
@@ -193,6 +265,7 @@ class Master {
                         txt = "Selected: Search ASEAN Phonebook by Country";
                         centerTxt = txt.PadLeft((50 + txt.Length) / 2).PadRight(50);
                         Console.WriteLine(centerTxt);
+                        phonebook_obj.Search_Phonebook();
                         break;
                     case 4:
                         Console.WriteLine("Exiting...");
