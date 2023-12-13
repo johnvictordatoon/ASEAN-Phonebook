@@ -231,7 +231,8 @@ class Phonebook {
                     break;
             }
         }
-
+        
+        // If no info searched, inform user
         if (entries.Count == 0) {
         Console.WriteLine("\nNo information found in selected countries. Returning to Main Menu...\n");
         System.Threading.Thread.Sleep(3000);
